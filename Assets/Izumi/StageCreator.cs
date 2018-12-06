@@ -6,6 +6,7 @@ public class StageCreator : MonoBehaviour {
 
 	void Start () {
         int hoge = 1;
+        int test;
 	}
 	
 	void Update () {
