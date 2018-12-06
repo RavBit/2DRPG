@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class StageCreator : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
-		
+        int hoge = 1;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
