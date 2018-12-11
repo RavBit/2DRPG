@@ -8,9 +8,10 @@ namespace System
     public delegate void Action();
 }
 
-public class EventManager : MonoBehaviour {
+public class EventManager : MonoBehaviour
+{
 
-    private Dictionary<string, Action> eventDictionary;
+    private Dictionary<string, Action<EventParam>> eventDictionary;
 
     private static EventManager eventManager;
 
@@ -31,7 +32,6 @@ public class EventManager : MonoBehaviour {
                     eventManager.Init();
                 }
             }
-
             return eventManager;
         }
     }
@@ -40,13 +40,13 @@ public class EventManager : MonoBehaviour {
     {
         if (eventDictionary == null)
         {
-            eventDictionary = new Dictionary<string, Action>();
+            eventDictionary = new Dictionary<string, Action<EventParam>>();
         }
     }
 
-    public static void StartListening(string eventName, Action listener)
+    public static void StartListening(string eventName, Action<EventParam> listener)
     {
-        Action thisEvent;
+        Action<EventParam> thisEvent;
         if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             //Add more event to the existing one
@@ -63,10 +63,10 @@ public class EventManager : MonoBehaviour {
         }
     }
 
-    public static void StopListening(string eventName, Action listener)
+    public static void StopListening(string eventName, Action<EventParam> listener)
     {
         if (eventManager == null) return;
-        Action thisEvent;
+        Action<EventParam> thisEvent;
         if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             //Remove event from the existing one
@@ -77,13 +77,22 @@ public class EventManager : MonoBehaviour {
         }
     }
 
-    public static void TriggerEvent(string eventName)
+    public static void TriggerEvent(string eventName, EventParam eventParam)
     {
-        Action thisEvent = null;
+        Action<EventParam> thisEvent = null;
         if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
-            thisEvent.Invoke();
-            // OR USE instance.eventDictionary[eventName]();
+            thisEvent.Invoke(eventParam);
+            // OR USE  instance.eventDictionary[eventName](eventParam);
         }
     }
+}
+
+//Re-usable structure/ Can be a class to. Add all parameters you need inside it
+public struct EventParam
+{
+    public string param1;
+    public int param2;
+    public float param3;
+    public bool param4;
 }

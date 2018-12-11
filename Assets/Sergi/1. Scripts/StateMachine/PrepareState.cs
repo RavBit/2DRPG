@@ -6,6 +6,7 @@ using System;
 public class PrepareState : State<State_Manager>
 {
     private static PrepareState _instance;
+    private Action<EventParam> test;
 
     private PrepareState()
     {
@@ -29,7 +30,10 @@ public class PrepareState : State<State_Manager>
     }
     public override void EnterState(State_Manager _owner)
     {
+        test = new Action<EventParam>(Test);
         Debug.Log("Entering Prepare State");
+        EventManager.StartListening("Test", test);
+        EventManager.TriggerEvent("Test", new EventParam());
     }
 
     public override void ExitState(State_Manager _owner)
@@ -39,6 +43,16 @@ public class PrepareState : State<State_Manager>
 
     public override void UpdateState(State_Manager _owner)
     {
+
            // _owner.stateMachine.ChangeState(PlayState.Instance);
+    }
+
+    public void Test(EventParam eventParam)
+    {
+        Debug.Log("TEST EVENT");
+        if(eventParam.param2 == 0)
+        {
+            Debug.Log("Test");
+        }
     }
 }

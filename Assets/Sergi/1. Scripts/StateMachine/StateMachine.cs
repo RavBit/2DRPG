@@ -19,6 +19,7 @@
             }
             currentState = _newstate;
             currentState.EnterState(Owner);
+            
         }
 
         public void Update()
