@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateMachine;
 using System;
-public class EndState : State<StateManager>
+public class InitState : State<StateManager>
 {
-    private static EndState _instance;
-    private EndState()
+    private static InitState _instance;
+    private Action<EventParam> test;
+
+    private InitState()
     {
         if (_instance != null)
         {
@@ -16,12 +18,11 @@ public class EndState : State<StateManager>
         _instance = this;
     }
 
-    public static EndState Instance {
+    public static InitState Instance {
         get {
             if (_instance == null)
             {
-                
-                new EndState();
+                new InitState();
             }
             return _instance;
         }
@@ -29,15 +30,18 @@ public class EndState : State<StateManager>
     }
     public override void EnterState(StateManager _owner)
     {
-        Debug.Log("Entering End State");
+        EventParam ep = new EventParam();
+        EventManager.TriggerEvent("Init", ep);
+        Debug.Log("Entering Init State");
     }
 
     public override void ExitState(StateManager _owner)
     {
-        Debug.Log("Exiting End State");
+        Debug.Log("Exiting Init State");
     }
 
     public override void UpdateState(StateManager _owner)
     {
+        //_owner.stateMachine.ChangeState(PlayState.Instance);
     }
 }

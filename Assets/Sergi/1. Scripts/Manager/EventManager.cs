@@ -13,6 +13,8 @@ public class EventManager : MonoBehaviour
 
     private Dictionary<string, Action<EventParam>> eventDictionary;
 
+    private Dictionary<string, Event> eventsDictionairy;
+
     private static EventManager eventManager;
 
     public static EventManager instance
@@ -89,10 +91,36 @@ public class EventManager : MonoBehaviour
 }
 
 //Re-usable structure/ Can be a class to. Add all parameters you need inside it
-public struct EventParam
+public class EventParam
 {
-    public string param1;
-    public int param2;
-    public float param3;
-    public bool param4;
+
 }
+
+
+/*public class EventParamBase
+{
+    //public int? GetIntParam() { return null; }
+    //public float? GetFloatParam() { return null; }
+    //public string? GetStringParam() { return null; }
+}
+
+
+public class IntEventParam : EventParamBase
+{
+    private int value;
+
+    public IntEventParam(int value) {
+        this.value = value;
+    }
+
+    public override int? GetIntParam()
+    {
+        return value;
+    }
+
+}
+
+public class Data1
+{
+    int test;
+}*/

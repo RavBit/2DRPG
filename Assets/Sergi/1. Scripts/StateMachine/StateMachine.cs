@@ -1,4 +1,7 @@
-﻿namespace StateMachine
+﻿using System;
+using EnemyStates;
+
+namespace StateMachine
 {
     public class StateMachine<T>
     {
@@ -31,6 +34,16 @@
         }
     }
 
+    public abstract class State<T>
+    {
+        public int seconds = 0;
+        public abstract void EnterState(T _owner);
+        public abstract void ExitState(T _owner);
+        public abstract void UpdateState(T _owner);
+    }
+}
+
+namespace EnemyStates {
     public abstract class State<T>
     {
         public int seconds = 0;

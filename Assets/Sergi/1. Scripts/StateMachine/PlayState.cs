@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateMachine;
 using System;
-public class PlayState : State<State_Manager>
+public class PlayState : State<StateManager>
 {
     private static PlayState _instance;
+
+
 
     private PlayState()
     {
@@ -28,19 +30,22 @@ public class PlayState : State<State_Manager>
         }
 
     }
-    public override void EnterState(State_Manager _owner)
+    public override void EnterState(StateManager _owner)
     {
         Debug.Log("Entering Play State");
+
     }
 
-    public override void ExitState(State_Manager _owner)
+    public override void ExitState(StateManager _owner)
     {
         Debug.Log("Exiting Play State");
     }
 
 
-    public override void UpdateState(State_Manager _owner)
+    public override void UpdateState(StateManager _owner)
     {
         //    _owner.stateMachine.ChangeState(EndState.Instance);
     }
+
+
 }
