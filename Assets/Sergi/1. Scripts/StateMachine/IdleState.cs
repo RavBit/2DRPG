@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateMachine;
 using System;
-public class InitState : State<StateManager>
+public class IdleState : State<StateManager>
 {
-    private static InitState _instance;
-    private Action<EventParam> test;
+    private static IdleState _instance;
 
-    private InitState()
+    private IdleState()
     {
         if (_instance != null)
         {
@@ -18,11 +17,11 @@ public class InitState : State<StateManager>
         _instance = this;
     }
 
-    public static InitState Instance {
+    public static IdleState Instance {
         get {
             if (_instance == null)
             {
-                new InitState();
+                new IdleState();
             }
             return _instance;
         }
@@ -30,22 +29,19 @@ public class InitState : State<StateManager>
     }
     public override void EnterState(StateManager _owner)
     {
-        Enemy.UpdateState("Init");
-        seconds = 1;
-        Debug.Log("Entering Init State");
+        EventManager.TriggerEvent("ToggleBattleUI");
+        Enemy.UpdateState("Idle");
+        Debug.Log("Entering Idle State");
     }
 
     public override void ExitState(StateManager _owner)
     {
-        Debug.Log("Exiting Init State");
+        EventManager.TriggerEvent("ToggleBattleUI");
+        Debug.Log("Exiting Idle State");
     }
 
     public override void UpdateState(StateManager _owner)
     {
-        seconds--;
-        if (seconds == 0)
-        {
-            _owner.stateMachine.ChangeState(IdleState.Instance);
-        }
+        //_owner.stateMachine.ChangeState(PlayState.Instance);
     }
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef6f014d291dfd4fa99de89c57fb4b9, type: 3}
+  m_Name: CherryThrow
+  m_EditorClassIdentifier: 
+  Time: 10
+  PlayerController:
+    controller: 0
+    MoveSpeed: 4
+    VisualContainer: {fileID: 1898629752836548, guid: 4b1621315a41f8345854e34b1f54f036,
+      type: 2}
+    container: {fileID: 0}
+  ProjectileProperties: {fileID: 114008554204157128, guid: b6ce7b0a9ca306b428c1cf7d975f95e2,
+    type: 2}
