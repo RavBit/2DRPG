@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{AE8F51F6-26A6-153C-9495-FE0570CACAB2}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Izumi/StageCreator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Izumi/1. Scripts/SceneMover.cs">
     <Files>
-      <File FileName="Assets/Sergi/Battlesystem.cs" Line="1" Column="1" />
-      <File FileName="Assets/Izumi/StageCreator.cs" Line="8" Column="4" />
+      <File FileName="Assets/Izumi/1. Scripts/PlayerMover.cs" Line="23" Column="23" />
+      <File FileName="Assets/Izumi/1. Scripts/SceneMover.cs" Line="4" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
