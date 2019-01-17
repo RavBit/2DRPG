@@ -146,7 +146,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.9528302, g: 0.6966447, b: 0.82265174, a: 0}
+  m_BackGroundColor: {r: 0.21462265, g: 0.8584906, b: 0.84600866, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -171,7 +171,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -265,7 +265,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 39079575}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2095278829}
+        m_MethodName: IdleAction
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &39079575
@@ -313,7 +324,7 @@ GameObject:
   - component: {fileID: 209647806}
   - component: {fileID: 209647807}
   m_Layer: 0
-  m_Name: EnemySprite
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 209647804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.2600098, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -372,7 +383,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.42, y: 5.95}
+  m_Size: {x: 2.17, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -389,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a4ba7fd7d3e344c9b93ab84952a8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  Enemy: {fileID: 11400000, guid: 216a209cb9696d94db0e2a0aae8a3929, type: 2}
   SpriteRenderer: {fileID: 209647806}
 --- !u!1 &287136299
 GameObject:
@@ -420,7 +431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchState: 1
-  gameTimer: 0
   seconds: 0
 --- !u!4 &287136301
 Transform:
@@ -1079,7 +1089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1729946675}
-  - component: {fileID: 1729946674}
+  - component: {fileID: 1729946676}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -1087,20 +1097,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1729946674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1729946673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12598533caa0f44798b2aa894a516ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIBehaviour: {fileID: 0}
-  EnemyContainer: {fileID: 209647807}
-  enemy: {fileID: 11400000, guid: 1393daf319171dc45975192642c240ef, type: 2}
 --- !u!4 &1729946675
 Transform:
   m_ObjectHideFlags: 0
@@ -1114,6 +1110,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729946676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1729946673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b0d9e8101f9574aa75834221fa038f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2014491450
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateMachine;
 using System;
-public class InitState : State<StateManager>
+public class CookState : State<StateManager>
 {
-    private static InitState _instance;
-    private Action<EventParam> test;
+    private static CookState _instance;
 
-    private InitState()
+    private CookState()
     {
         if (_instance != null)
         {
@@ -18,11 +17,11 @@ public class InitState : State<StateManager>
         _instance = this;
     }
 
-    public static InitState Instance {
+    public static CookState Instance {
         get {
             if (_instance == null)
             {
-                new InitState();
+                new CookState();
             }
             return _instance;
         }
@@ -30,22 +29,17 @@ public class InitState : State<StateManager>
     }
     public override void EnterState(StateManager _owner)
     {
-        Enemy.UpdateState("Init");
-        seconds = 1;
-        Debug.Log("Entering Init State");
+        Enemy.UpdateState("Cook");
+        Debug.Log("Entering Cook State");
     }
 
     public override void ExitState(StateManager _owner)
     {
-        Debug.Log("Exiting Init State");
+        Debug.Log("Exiting Cook State");
     }
 
     public override void UpdateState(StateManager _owner)
     {
-        seconds--;
-        if (seconds == 0)
-        {
-            _owner.stateMachine.ChangeState(IdleState.Instance);
-        }
+
     }
 }
